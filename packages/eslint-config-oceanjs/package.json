@@ -1,0 +1,28 @@
+{
+  "name": "eslint-config-oceanjs",
+  "version": "1.0.0",
+  "description": "OceanAi's JS ESLint style",
+  "main": "index.js",
+  "scripts": {
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "test": "npm run --silent tests-only"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OceanAi-lab/javascript.git"
+  },
+  "author": "Cangqing Wang <kristampsw@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OceanAi-lab/javascript/issues"
+  },
+  "homepage": "https://github.com/OceanAi-lab/javascript#readme",
+  "devDependencies": {
+    "babel-tape-runner": "^3.0.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-import": "^2.28.1"
+  },
+  "dependencies": {
+    "tape": "^5.7.0"
+  }
+}

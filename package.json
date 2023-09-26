@@ -1,0 +1,27 @@
+{
+    "name": "oceanai-style",
+    "version": "1.0.0",
+    "description": "A mostly reasonable approach to JavaScript",
+    "main": "index.js",
+    "scripts": {
+        "preinstall": "npm run install:config",
+        "install:config": "cd packages/eslint-config-oceanjs && npm prune && npm install",
+        "test": "npm run --silent test:config && npm run --silent test:config:base",
+        "test:config": "cd packages/eslint-config-oceanjs; npm test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/OceanAi-lab/javascript.git"
+    },
+    "keywords": [
+        "style guide",
+        "oceanai",
+        "react"
+    ],
+    "author": "Cangqing Wang <kristampsw@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/OceanAi-lab/javascript/issues"
+    },
+    "homepage": "https://github.com/OceanAi-lab/javascript#readme"
+}
