@@ -1,28 +1,59 @@
 {
-  "name": "eslint-config-oceanai",
-  "version": "1.0.0",
-  "description": "OceanAi's JS ESLint style",
-  "main": "index.js",
-  "scripts": {
-    "tests-only": "babel-tape-runner ./test/test-*.js",
-    "test": "npm run --silent tests-only"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OceanAi-lab/javascript.git"
-  },
-  "author": "Cangqing Wang <kristampsw@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/OceanAi-lab/javascript/issues"
-  },
-  "homepage": "https://github.com/OceanAi-lab/javascript",
-  "devDependencies": {
-    "babel-tape-runner": "^3.0.0",
-    "eslint": "^8.50.0",
-    "eslint-plugin-import": "^2.28.1"
-  },
-  "dependencies": {
-    "tape": "^5.7.0"
-  }
+    "name": "eslint-config-oceanai",
+    "version": "1.0.0",
+    "description": "OceanAi's JS ESLint style",
+    "main": "index.js",
+    "exports": {
+        ".": "./index.js",
+        "./legacy": "./legacy.js",
+        "./whitespace": "./whitespace.js",
+        "./rules/best-practices": "./rules/best-practices.js",
+        "./rules/es6": "./rules/es6.js",
+        "./rules/node": "./rules/node.js",
+        "./rules/style": "./rules/style.js",
+        "./rules/errors": "./rules/errors.js",
+        "./rules/imports": "./rules/imports.js",
+        "./rules/strict": "./rules/strict.js",
+        "./rules/variables": "./rules/variables.js",
+        "./package.json": "./package.json"
+    },
+    "scripts": {
+        "lint": "eslint --report-unused-disable-directives .",
+        "lint:fix": "eslint --fix .",
+        "tests-only": "jest",
+        "test": "npm run --silent tests-only"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OceanAi-lab/javascript.git"
+    },
+    "keywords": [
+        "eslint",
+        "eslintconfig",
+        "config",
+        "airbnb",
+        "javascript",
+        "styleguide",
+        "es2015",
+        "es2016",
+        "es2017",
+        "es2018"
+    ],
+    "author": "Cangqing Wang <kristampsw@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/OceanAi-lab/javascript/issues"
+    },
+    "homepage": "https://github.com/OceanAi-lab/javascript",
+    "devDependencies": {
+        "@babel/core": "^7.23.0",
+        "@babel/preset-env": "^7.22.20",
+        "babel-jest": "^29.7.0",
+        "eslint": "^8.50.0",
+        "eslint-plugin-import": "^2.28.1",
+        "jest": "^29.7.0"
+    },
+    "dependencies": {
+        "confusing-browser-globals": "^1.0.11"
+    }
 }

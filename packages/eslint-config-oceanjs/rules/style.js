@@ -461,14 +461,16 @@ module.exports = {
     'require-jsdoc': 'off',
 
     // require or disallow use of semicolons instead of ASI
-    semi: ['error', 'always'],
+    semi: ['error', 'never'],
 
     // enforce spacing before and after semicolons
     'semi-spacing': ['error', { before: false, after: true }],
 
     // Enforce location of semicolons
     // https://eslint.org/docs/rules/semi-style
-    'semi-style': ['error', 'last'],
+    // 'semi-style': ['error', 'last'],
+
+    'no-extra-semi': 'error',
 
     // requires object keys to be sorted
     'sort-keys': ['off', 'asc', { caseSensitive: false, natural: true }],
@@ -531,4 +533,4 @@ module.exports = {
     // require regex literals to be wrapped in parentheses
     'wrap-regex': 'off'
   }
-};
+}
