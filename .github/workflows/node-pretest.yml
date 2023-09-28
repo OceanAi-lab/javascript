@@ -16,11 +16,11 @@ jobs:
         working-directory: "packages/${{ matrix.package }}"
 
     steps:
-      -name: Checkout code  
-      - uses: actions/checkout@v4
+      - name: Checkout code  
+        uses: actions/checkout@v4
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.OS }}-${{ matrix.package }}-node-${{ hashFiles('**/package-lock.json') }}
