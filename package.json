@@ -5,9 +5,10 @@
     "main": "index.js",
     "scripts": {
         "preinstall": "npm run install:config",
-        "install:config": "cd packages/eslint-config-oceanjs && npm prune && npm install",
-        "test": "npm run --silent test:config && npm run --silent test:config:base",
-        "test:config": "cd packages/eslint-config-oceanjs; npm test"
+        "install:config": "cd packages/eslint-config-oceanai && npm prune && npm install",
+        "pretest": "npm run --silent lint",
+        "test": "npm run --silent test:config",
+        "test:config": "cd packages/eslint-config-oceanai; npm test"
     },
     "repository": {
         "type": "git",
