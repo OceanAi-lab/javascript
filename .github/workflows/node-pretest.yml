@@ -4,7 +4,7 @@ on: [pull_request, push]
 
 jobs:
   pretest:
-    runs-on: [self-hosted,macos,arm64]
+    runs-on: [self-hosted, macOS, ARM64]
     strategy:
       fail-fast: false
       matrix:
