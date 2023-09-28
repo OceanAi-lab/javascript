@@ -6,7 +6,7 @@
     "scripts": {
         "preinstall": "npm run install:config",
         "install:config": "cd packages/eslint-config-oceanai && npm prune && npm install",
-        "pretest": "npm run --silent test:config",
+        "test": "npm run --silent test:config",
         "test:config": "cd packages/eslint-config-oceanai; npm pretest"
     },
     "repository": {
