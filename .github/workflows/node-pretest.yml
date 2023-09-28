@@ -9,7 +9,6 @@ jobs:
       fail-fast: false
       matrix:
         package:
-        
           - eslint-config-oceanai
 
     defaults:
@@ -17,9 +16,26 @@ jobs:
         working-directory: "packages/${{ matrix.package }}"
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: ljharb/actions/node/install@main
-        name: 'nvm install lts/* && npm install'
+      -name: Checkout code  
+      - uses: actions/checkout@v4
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-${{ matrix.package }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-${{ matrix.package }}-node-
+
+      - name: Setup Node.js
+        uses: ljharb/actions/node/install@main
+    
         with:
           node-version: 'lts/*'
-      - run: npm run pretest
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run pretest
+        run: npm run pretest
+
