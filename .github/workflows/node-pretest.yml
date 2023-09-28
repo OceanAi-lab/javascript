@@ -4,7 +4,7 @@ on: [pull_request, push]
 
 jobs:
   pretest:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
@@ -18,24 +18,9 @@ jobs:
     steps:
       - name: Checkout code  
         uses: actions/checkout@v4
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-${{ matrix.package }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-${{ matrix.package }}-node-
-
-      - name: Setup Node.js
-        uses: ljharb/actions/node/install@main
-    
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install lts/* && npm install'
         with:
           node-version: 'lts/*'
-      
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run pretest
-        run: npm run pretest
+      - run: npm run pretest
 
