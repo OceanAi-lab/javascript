@@ -1,4 +1,4 @@
-name: 'npm publish'
+name: 'Publish: npm publish'
 
 on:
   push:
@@ -22,7 +22,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - uses: actions/setup-node@v3
+    - uses: ljharb/actions/node/install@main
+      name: 'nvm install lts/* && npm install'
       with:
         node-version: 'lts/*'
 
@@ -45,8 +46,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - uses: ljharb/actions/node/install@main
-      name: 'nvm install lts/* && npm install'
+    - uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
 
