@@ -22,8 +22,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - uses: ljharb/actions/node/install@main
-      name: 'nvm install lts/* && npm install'
+    - uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
 
