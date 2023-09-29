@@ -4,7 +4,7 @@ on: [pull_request, push]
 
 jobs:
   pretest:
-    runs-on: [self-hosted, macOS, ARM64]
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
