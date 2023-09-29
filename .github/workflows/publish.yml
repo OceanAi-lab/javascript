@@ -27,9 +27,6 @@ jobs:
       with:
         node-version: 'lts/*'
 
-    - name: Install dependencies
-      run: npm install
-
     - name: Run tests
       run: npm test
 
@@ -49,14 +46,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - uses: ljharb/actions/node/install@main
+      name: 'nvm install lts/* && npm install'
       with:
-        node-version: 'node'
-        registry-url: 'https://registry.npmjs.org/'
-
-    - name: Install dependencies
-      run: npm install
+        node-version: 'lts/*'
 
     - name: Publish to npm
       run: npm publish
