@@ -1,6 +1,6 @@
 {
     "name": "eslint-config-oceanai",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "OceanAi's JS ESLint style",
     "main": "index.js",
     "exports": {
