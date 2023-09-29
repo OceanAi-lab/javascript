@@ -16,11 +16,11 @@ module.exports = {
         extensions: ['.mjs', '.js', '.json']
       },
     },
-    'import/extensions': [
-      '.js',
-      '.mjs',
-      '.jsx',
-    ],
+    // 'import/extensions': [
+    //   '.js',
+    //   '.mjs',
+    //   '.jsx',
+    // ],
     'import/core-modules': [
     ],
     'import/ignore': [
