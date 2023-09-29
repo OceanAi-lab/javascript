@@ -49,12 +49,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
+        registry-url: "https://registry.npmjs.org"
     - run: npm install
-
-    - name: Setup .npmrc file for authentication
-      run: |
-      echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      echo "package-lock=false" >> ~/.npmrc
 
     - name: Publish to npm
       run: npm publish
