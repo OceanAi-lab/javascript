@@ -51,6 +51,11 @@ jobs:
         node-version: 'lts/*'
     - run: npm install
 
+    - name: Setup .npmrc file for authentication
+      run: |
+      echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      echo "package-lock=false" >> ~/.npmrc
+
     - name: Publish to npm
       run: npm publish
       env:
