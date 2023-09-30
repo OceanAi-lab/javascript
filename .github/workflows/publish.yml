@@ -37,6 +37,7 @@ jobs:
       matrix:
         package:
           - eslint-config-oceanai
+          - eslint-config-oceanai-react
 
     defaults:
       run:

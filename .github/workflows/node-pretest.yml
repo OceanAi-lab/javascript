@@ -10,6 +10,7 @@ jobs:
       matrix:
         package:
           - eslint-config-oceanai
+          - eslint-config-oceanai-react
 
     defaults:
       run:
@@ -18,9 +19,10 @@ jobs:
     steps:
       - name: Checkout code  
         uses: actions/checkout@v4
-      - uses: ljharb/actions/node/install@main
-        name: 'nvm install lts/* && npm install'
-        with:
+      - uses: actions/setup-node@v3
+         with:
           node-version: 'lts/*'
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install
       - run: npm run pretest
 
