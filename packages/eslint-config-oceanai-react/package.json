@@ -1,11 +1,12 @@
 {
   "name": "eslint-config-oceanai-react",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --report-unused-disable-directives .",
     "lint:fix": "eslint --fix .",
+    "pretest": "npm run -silent lint",
     "tests-only": "babel-tape-runner ./test/test-*.js",
     "test": "npm run --silent tests-only"
   },

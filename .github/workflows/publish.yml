@@ -1,9 +1,6 @@
 name: 'Publish: npm publish'
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
       
 jobs:
   test:
@@ -64,15 +61,13 @@ jobs:
     - uses: actions/setup-node@v3
       if: steps.check_changes.outputs.changed == 'true'
       with:
-          node-version: 'lts/*'
-          registry-url: "https://registry.npmjs.org"
+        node-version: 'lts/*'
+        registry-url: "https://registry.npmjs.org"
+    - run: npm install
+      if: steps.check_changes.outputs.changed == 'true'
 
-      - run: npm install
-        if: steps.check_changes.outputs.changed == 'true'
-
-      - name: Publish to npm
-        if: steps.check_changes.outputs.changed == 'true'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+    - name: Publish to npm
+      if: steps.check_changes.outputs.changed == 'true'
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
