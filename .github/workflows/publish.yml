@@ -60,12 +60,13 @@ jobs:
           echo "::set-output name=changed::true"
         fi
       continue-on-error: true
-      
+
     - uses: actions/setup-node@v3
-        if: steps.check_changes.outputs.changed == 'true'
-        with:
+      if: steps.check_changes.outputs.changed == 'true'
+      with:
           node-version: 'lts/*'
           registry-url: "https://registry.npmjs.org"
+
       - run: npm install
         if: steps.check_changes.outputs.changed == 'true'
 
