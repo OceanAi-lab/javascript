@@ -20,7 +20,7 @@ jobs:
       - name: Checkout code  
         uses: actions/checkout@v4
       - uses: actions/setup-node@v3
-         with:
+        with:
           node-version: 'lts/*'
           registry-url: "https://registry.npmjs.org"
       - run: npm install
